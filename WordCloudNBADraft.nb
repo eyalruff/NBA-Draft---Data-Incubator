@@ -1,0 +1,663 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26025,        653]
+NotebookOptionsPosition[     25637,        636]
+NotebookOutlinePosition[     25996,        652]
+CellTagsIndexPosition[     25953,        649]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"points", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<points.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"\[NonBreakingSpace]\[NonBreakingSpace]", 
+  RowBox[{
+   RowBox[{"w48", " ", "=", " ", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<w48.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+   ";"}]}], "\n", 
+ RowBox[{"\[NonBreakingSpace]\[NonBreakingSpace]", 
+  RowBox[{
+   RowBox[{"TRB", "=", "\[NonBreakingSpace]", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<TRB.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+   ";"}]}], "\n", 
+ RowBox[{"\[NonBreakingSpace]\[NonBreakingSpace]", 
+  RowBox[{
+   RowBox[{"AST", "=", "\[NonBreakingSpace]", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<AST.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+   ";"}]}], "\n", 
+ RowBox[{"\[NonBreakingSpace]\[NonBreakingSpace]", 
+  RowBox[{
+   RowBox[{"stl", " ", "=", " ", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<STL.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+   ";"}]}], "\n", 
+ RowBox[{"\[NonBreakingSpace]\[NonBreakingSpace]", 
+  RowBox[{
+   RowBox[{"blk", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<BLK.csv\>\"", ",", " ", "\"\<CSV\>\""}], "]"}]}], 
+   ";"}]}]}], "Input",
+ ExpressionUUID -> "84f768f0-75b5-4935-8cdd-d91cda32daf2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pointsGraphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"points", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";", " ", 
+  RowBox[{"w48Graphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"w48", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";", 
+  RowBox[{"TRBGraphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"TRB", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";", 
+  RowBox[{"ASTGraphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"AST", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";", 
+  RowBox[{"stlGraphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"stl", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";", 
+  RowBox[{"blkGraphic", "=", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{"blk", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "125"}]}], "]"}]}], ";"}]], "Input",
+ ExpressionUUID -> "46c0dee0-b4d6-412a-9003-72adf2a07c1e"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"{", "\n", "\n", 
+    RowBox[{
+     RowBox[{"{", "\n", 
+      RowBox[{
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "pointsGraphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Points Scored\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], ",", ",", ",", 
+       ",", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "w48Graphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<W48\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], ",", ",", ",", 
+       ",", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "TRBGraphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Total Rebounds\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], "}"}], ",", 
+     "\n", 
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", "}"}], ",", "\n", "\n", "\n", 
+     RowBox[{"{", "\n", 
+      RowBox[{
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "ASTGraphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Assists\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], ",", ",", ",", 
+       ",", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "stlGraphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Steals\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], ",", ",", ",", 
+       ",", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "blkGraphic", "}"}], ",", 
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Blocks\>\"", ",", "18", ",", "Bold", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}]}], "]"}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], "}"}]}], "\n",
+     "\n", "}"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]], "Input",
+ ExpressionUUID -> "9262fe17-b6bc-41ab-9658-8d1e09f5fc49"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox[GridBox[{
+     {
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.8433734939759037],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["3",
+              StripOnInput->False,
+              FontSize->Scaled[0.5869238900231996],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {21., 2.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.5578819594662828],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {-29., 0.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["10",
+              StripOnInput->False,
+              FontSize->Scaled[0.3583255376880531],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {0., -40.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["9",
+              StripOnInput->False,
+              FontSize->Scaled[0.5180312474055053],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {-27., 37.},
+              Center, Automatic], InsetBox[
+             StyleBox["4",
+              StripOnInput->False,
+              FontSize->Scaled[0.3929839100450277],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {6., 36.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["5",
+              StripOnInput->False,
+              FontSize->Scaled[0.3528454615775918],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-26., -33.},
+              Center, Automatic], InsetBox[
+             StyleBox["6",
+              StripOnInput->False,
+              FontSize->Scaled[0.23537758373018358`],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {26., -27.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["7",
+              StripOnInput->False,
+              FontSize->Scaled[0.23648387439508353`],
+              FontColor->RGBColor[1, 0.75, 0]], {21., 32.}, Center, 
+             Automatic], InsetBox[
+             StyleBox["13",
+              StripOnInput->False,
+              FontSize->Scaled[0.12048192771084337`],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {-40., 2.}, 
+             Center, Automatic]},
+           ExpressionUUID -> "de48de46-8dbc-4aea-a4be-bf2fef9144ea",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-48.5, 34.5}, {-53.5, 56.5}}]},
+         {""},
+         {
+          StyleBox["\"\<Points Scored\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], "", "", "", 
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.875],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["24",
+              StripOnInput->False,
+              FontSize->Scaled[0.3548160488898443],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {-22.5, 0.5},
+              Center, Automatic], InsetBox[
+             StyleBox["3",
+              StripOnInput->False,
+              FontSize->Scaled[0.5210630163068516],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {18.5, 0.5},
+              Center, Automatic], InsetBox[
+             StyleBox["15",
+              StripOnInput->False,
+              FontSize->Scaled[0.3230315081534258],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {21.5, 29.5},
+              Center, Automatic], InsetBox[
+             StyleBox["9",
+              StripOnInput->False,
+              FontSize->Scaled[0.43409314252372333`],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {-26.5, -26.5},
+              Center, Automatic], InsetBox[
+             StyleBox["11",
+              StripOnInput->False,
+              FontSize->Scaled[0.2018817369406996],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {-0.5, -33.5},
+              Center, Automatic], InsetBox[
+             StyleBox["18",
+              StripOnInput->False,
+              FontSize->Scaled[0.18492998188127638`],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-27.5, 20.5},
+              Center, Automatic], InsetBox[
+             StyleBox["22",
+              StripOnInput->False,
+              FontSize->Scaled[0.16813945275312464`],
+              FontColor->RGBColor[1, 0.75, 0]], {-3.5, 35.5}, Center, 
+             Automatic], InsetBox[
+             StyleBox["10",
+              StripOnInput->False,
+              FontSize->Scaled[0.12668135614040496`],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {25.5, -22.5},
+              Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.125],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {33.5, 5.5}, 
+             Center, Automatic]},
+           ExpressionUUID -> "f0096122-8ff8-4698-9135-b4bf14c5df8c",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-42., 38.}, {-42., 43.}}]},
+         {""},
+         {
+          StyleBox["\"\<W48\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], "", "", "", 
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.7216494845360825],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["3",
+              StripOnInput->False,
+              FontSize->Scaled[0.5453665487828722],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {22., 4.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["10",
+              StripOnInput->False,
+              FontSize->Scaled[0.3555067927269975],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-25., 0.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["9",
+              StripOnInput->False,
+              FontSize->Scaled[0.44638717240782794`],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {-30., 32.},
+              Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.43629833010566554`],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {-26., -33.},
+              Center, Automatic], InsetBox[
+             StyleBox["17",
+              StripOnInput->False,
+              FontSize->Scaled[0.2859623842777869],
+              FontColor->RGBColor[1, 0.75, 0]], {2., -39.}, Center, 
+             Automatic], InsetBox[
+             StyleBox["4",
+              StripOnInput->False,
+              FontSize->Scaled[0.40188712641452684`],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {6., 42.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["5",
+              StripOnInput->False,
+              FontSize->Scaled[0.38627029451184175`],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {29., -33.},
+              Center, Automatic], InsetBox[
+             StyleBox["27",
+              StripOnInput->False,
+              FontSize->Scaled[0.1358553568275242],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {29., 33.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["35",
+              StripOnInput->False,
+              FontSize->Scaled[0.10309278350515463`],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {43., 8.}, Center,
+              Automatic]},
+           ExpressionUUID -> "c71ee269-8564-408b-acdf-540e4bf4a405",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-46.5, 50.5}, {-51.5, 58.5}}]},
+         {""},
+         {
+          StyleBox["\"\<Total Rebounds\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]},
+     {"", "", "", "", "", "", "", "", ""},
+     {"", "", "", "", "", "", "", "", ""},
+     {
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["16",
+              StripOnInput->False,
+              FontSize->Scaled[0.5691056910569107],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["24",
+              StripOnInput->False,
+              FontSize->Scaled[0.47013300524547214`],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {24., -50.},
+              Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.47281523562597344`],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {-47., -12.},
+              Center, Automatic], InsetBox[
+             StyleBox["3",
+              StripOnInput->False,
+              FontSize->Scaled[0.33355113588766944`],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {-2., 35.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["18",
+              StripOnInput->False,
+              FontSize->Scaled[0.17915424009189207`],
+              FontColor->RGBColor[1, 0.75, 0]], {23., 39.}, Center, 
+             Automatic], InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.27182848268960597`],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {-14., -42.},
+              Center, Automatic], InsetBox[
+             StyleBox["4",
+              StripOnInput->False,
+              FontSize->Scaled[0.21181512189484492`],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-19., 40.},
+              Center, Automatic], InsetBox[
+             StyleBox["5",
+              StripOnInput->False,
+              FontSize->Scaled[0.21913876049665293`],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {-5., 0.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["17",
+              StripOnInput->False,
+              FontSize->Scaled[0.08611989642644481],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {-25., -41.},
+              Center, Automatic], InsetBox[
+             StyleBox["10",
+              StripOnInput->False,
+              FontSize->Scaled[0.0813008130081301],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {46., 10.}, 
+             Center, Automatic]},
+           ExpressionUUID -> "7a29c72e-647c-469e-be9b-a6e2e729445c",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-63.5, 59.5}, {-72.5, 54.5}}]},
+         {""},
+         {
+          StyleBox["\"\<Assists\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], "", "", "", 
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["16",
+              StripOnInput->False,
+              FontSize->Scaled[0.6730769230769231],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["12",
+              StripOnInput->False,
+              FontSize->Scaled[0.41048453653827777`],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {-6., -43.5},
+              Center, Automatic], InsetBox[
+             StyleBox["17",
+              StripOnInput->False,
+              FontSize->Scaled[0.28928592482333326`],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {2., 39.5}, 
+             Center, Automatic], InsetBox[
+             StyleBox["11",
+              StripOnInput->False,
+              FontSize->Scaled[0.24542304376340296`],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {-43., 0.5},
+              Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.36356820208242846`],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {-27., 44.5},
+              Center, Automatic], InsetBox[
+             StyleBox["5",
+              StripOnInput->False,
+              FontSize->Scaled[0.33534102883418027`],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {29., -41.5},
+              Center, Automatic], InsetBox[
+             StyleBox["14",
+              StripOnInput->False,
+              FontSize->Scaled[0.16808731310838873`],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {32., 38.5}, 
+             Center, Automatic], InsetBox[
+             StyleBox["9",
+              StripOnInput->False,
+              FontSize->Scaled[0.2292162526619853],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-6., 0.5}, 
+             Center, Automatic], InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.1776391416802383],
+              FontColor->RGBColor[1, 0.75, 0]], {-8., -35.5}, Center, 
+             Automatic], InsetBox[
+             StyleBox["7",
+              StripOnInput->False,
+              FontSize->Scaled[0.09615384615384616],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {0., 16.5}, 
+             Center, Automatic]},
+           ExpressionUUID -> "a4b938fa-8201-4d98-aa7c-025fae610ae1",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-59.5, 44.5}, {-61., 62.}}]},
+         {""},
+         {
+          StyleBox["\"\<Steals\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], "", "", "", 
+      TagBox[GridBox[{
+         {
+          GraphicsBox[{InsetBox[
+             StyleBox["1",
+              StripOnInput->False,
+              FontSize->Scaled[0.8045977011494253],
+              FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, 
+             Center, Automatic], InsetBox[
+             StyleBox["17",
+              StripOnInput->False,
+              FontSize->Scaled[0.39355473585284456`],
+              FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {-25., 0.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["20",
+              StripOnInput->False,
+              FontSize->Scaled[0.2821096619578073],
+              FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {24., 0.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["2",
+              StripOnInput->False,
+              FontSize->Scaled[0.3699297213451254],
+              FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {17., 24.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["27",
+              StripOnInput->False,
+              FontSize->Scaled[0.19961124885152196`],
+              FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {0., -35.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["3",
+              StripOnInput->False,
+              FontSize->Scaled[0.24031787865226356`],
+              FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {-22., -24.},
+              Center, Automatic], InsetBox[
+             StyleBox["10",
+              StripOnInput->False,
+              FontSize->Scaled[0.11805756885813228`],
+              FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {-25., 20.}, 
+             Center, Automatic], InsetBox[
+             StyleBox["35",
+              StripOnInput->False,
+              FontSize->Scaled[0.13882354776737144`],
+              FontColor->RGBColor[1, 0.75, 0]], {27., -17.}, Center, 
+             Automatic], InsetBox[
+             StyleBox["22",
+              StripOnInput->False,
+              FontSize->Scaled[0.11494252873563218`],
+              FontColor->RGBColor[0.571589, 0.586483, 0.]], {0., 34.}, Center,
+              Automatic], InsetBox[
+             StyleBox["9",
+              StripOnInput->False,
+              FontSize->Scaled[0.18035550558584995`],
+              FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-25., 0.}, 
+             Center, Automatic]},
+           ExpressionUUID -> "79cd91ff-630c-4c66-8056-0a1dc6bf3350",
+           DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+           ImageSize->125,
+           
+           Method->{
+            "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> 
+             Automatic},
+           PlotRange->{{-46.5, 40.5}, {-44.5, 40.5}}]},
+         {""},
+         {
+          StyleBox["\"\<Blocks\>\"",
+           StripOnInput->False,
+           FontFamily->"Arial",
+           FontSize->18,
+           FontWeight->Bold]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Center}}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}
+    },
+    AutoDelete->False,
+    GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"], "\[AliasDelimiter]"}]], "Input",
+ CellChangeTimes->{{3.73404719979915*^9, 3.734047199810457*^9}}]
+},
+WindowSize->{808, 578},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1318, 36, 114, "Input"],
+Cell[1879, 58, 992, 26, 80, "Input"],
+Cell[2874, 86, 3430, 90, 369, "Input"],
+Cell[6307, 178, 19326, 456, 453, InheritFromParent]
+}
+]
+*)
+
+(* End of internal cache information *)
+
